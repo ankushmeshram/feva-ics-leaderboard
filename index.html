@@ -1,49 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICS Security Benchmark Leaderboard</title>
 
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
 
-    <!-- DataTables -->
-    <link rel="stylesheet"
-          href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+ICS Benchmark Leaderboard
+</title>
+
+<!-- DataTables -->
+
+<link rel="stylesheet"
+href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<style>
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #f5f7fa;
+
+    margin: 0;
+    padding: 0;
+}
+
+header {
+
+    background: #102542;
+
+    color: white;
+
+    padding: 35px;
+}
+
+header h1 {
+
+    margin: 0;
+    font-size: 36px;
+}
+
+header p {
+
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.container {
+
+    width: 96%;
+
+    margin: auto;
+
+    margin-top: 25px;
+}
+
+.section {
+
+    background: white;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.08);
+}
+
+.section h2 {
+
+    margin-top: 0;
+
+    color: #102542;
+}
+
+table.dataTable {
+
+    width: 100% !important;
+
+    border-collapse: collapse;
+}
+
+table.dataTable thead th {
+
+    background: #102542;
+
+    color: white;
+
+    text-align: center;
+
+    vertical-align: middle;
+
+    border: 1px solid #ddd;
+}
+
+table.dataTable tbody td {
+
+    text-align: center;
+
+    border: 1px solid #ddd;
+
+    padding: 6px;
+}
+
+.group-header {
+
+    background: #1d3d6b !important;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+.high-score {
+
+    background-color: #c8f7c5 !important;
+}
+
+.medium-score {
+
+    background-color: #fff3b0 !important;
+}
+
+.low-score {
+
+    background-color: #f7c5c5 !important;
+}
+
+footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #666;
+}
+
+pre {
+
+    background: #f4f4f4;
+
+    padding: 15px;
+
+    border-radius: 5px;
+
+    overflow-x: auto;
+}
+
+</style>
+
 </head>
+
 <body>
+
+<header>
+
+<h1>
+ICS Adversarial Robustness Benchmark
+</h1>
+
+<p>
+
+Comprehensive Evaluation of ML-based IDS Robustness under Adversarial Attacks
+
+</p>
+
+</header>
 
 <div class="container">
 
-    <h1>ICS Security Benchmark Leaderboard</h1>
+<!-- Description -->
 
-    <p>
-        Benchmark results for ML-based IDS robustness evaluation
-        under adversarial attacks.
-    </p>
+<div class="section">
 
-    <table id="leaderboard" class="display">
-        <thead>
-            <tr>
-                <th>NIDS</th>
-                <th>Model</th>
-                <th>Dataset</th>
-                <th>Clean Accuracy</th>
-                <th>FGSM ASR</th>
-                <th>PGD ASR</th>
-                <th>CorrShift ASR</th>
-                <th>Execution Time</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+<h2>
+Benchmark Description
+</h2>
+
+<p>
+
+This benchmark evaluates machine learning-based intrusion detection systems against multiple adversarial attacks in Industrial Control Systems.
+
+</p>
+
+<ul>
+
+<li>Datasets: SWaT, WADI</li>
+
+<li>Threat Models:
+    FGSM,
+    PGD,
+    CorrShift
+</li>
+
+<li>Metrics:
+    Robust Accuracy,
+    Precision,
+    Recall,
+    ASR
+</li>
+
+</ul>
 
 </div>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="script.js"></script>
+<!-- Leaderboard -->
+
+<div class="section">
+
+<h2>
+Leaderboard
+</h2>
+
+<table id="leaderboard"
+class="display nowrap"
+style="width:100%">
+
+<thead>
+
+<tr id="header-row-1">
+</tr>
+
+<tr id="header-row-2">
+</tr>
+
+</thead>
+
+<tbody>
+</tbody>
+
+</table>
+
+</div>
+
+<!-- Submission -->
+
+<div class="section">
+
+<h2>
+Submission Instructions
+</h2>
+
+<ol>
+
+<li>Fork the repository</li>
+
+<li>Update leaderboard.csv</li>
+
+<li>Create a Pull Request</li>
+
+<li>Results will be reviewed</li>
+
+</ol>
+
+</div>
+
+<!-- Citation -->
+
+<div class="section">
+
+<h2>
+Citation
+</h2>
+
+<pre>
+
+@inproceedings{yourpaper2026,
+
+  title={ICS Adversarial Robustness Benchmark},
+
+  author={Author1 and Author2},
+
+  booktitle={Conference},
+
+  year={2026}
+}
+
+</pre>
+
+</div>
+
+</div>
+
+<footer>
+
+Hosted using GitHub Pages
+
+</footer>
+
+<script>
+
+function scoreClass(score) {
+
+    score = parseFloat(score);
+
+    if(isNaN(score))
+        return '';
+
+    if(score >= 0.85)
+        return 'high-score';
+
+    if(score >= 0.60)
+        return 'medium-score';
+
+    return 'low-score';
+}
+
+async function loadCSV() {
+
+    const response =
+        await fetch('leaderboard.csv');
+
+    const text =
+        await response.text();
+
+    const rows =
+        text.trim()
+        .split('\n')
+        .map(r => r.split(','));
+
+    const header1 = rows[0];
+    const header2 = rows[1];
+
+    const headerRow1 =
+        document.getElementById(
+            'header-row-1');
+
+    const headerRow2 =
+        document.getElementById(
+            'header-row-2');
+
+    /*
+    CREATE MULTI-LEVEL HEADER
+    */
+
+    let current = '';
+    let colspan = 0;
+
+    for(let i=0; i<header1.length; i++) {
+
+        if(header1[i] === current) {
+
+            colspan++;
+
+        } else {
+
+            if(current !== '') {
+
+                const th =
+                    document.createElement('th');
+
+                th.innerText = current;
+
+                th.colSpan = colspan;
+
+                th.classList.add(
+                    'group-header');
+
+                headerRow1.appendChild(th);
+            }
+
+            current = header1[i];
+            colspan = 1;
+        }
+    }
+
+    const th =
+        document.createElement('th');
+
+    th.innerText = current;
+
+    th.colSpan = colspan;
+
+    th.classList.add('group-header');
+
+    headerRow1.appendChild(th);
+
+    /*
+    SECOND HEADER ROW
+    */
+
+    header2.forEach(h => {
+
+        const th =
+            document.createElement('th');
+
+        th.innerText = h;
+
+        headerRow2.appendChild(th);
+    });
+
+    /*
+    DATA ROWS
+    */
+
+    const tbody =
+        document.querySelector(
+            '#leaderboard tbody');
+
+    for(let i=2; i<rows.length; i++) {
+
+        const row = rows[i];
+
+        const tr =
+            document.createElement('tr');
+
+        row.forEach(cell => {
+
+            const td =
+                document.createElement('td');
+
+            td.innerText = cell;
+
+            const value =
+                parseFloat(cell);
+
+            if(!isNaN(value)) {
+
+                td.classList.add(
+                    scoreClass(value));
+            }
+
+            tr.appendChild(td);
+        });
+
+        tbody.appendChild(tr);
+    }
+
+    /*
+    DATATABLE INITIALIZATION
+    */
+
+    $('#leaderboard').DataTable({
+
+        scrollX: true,
+
+        pageLength: 25,
+
+        fixedHeader: true,
+
+        order: [[5, 'desc']]
+    });
+}
+
+loadCSV();
+
+</script>
 
 </body>
+
 </html>
